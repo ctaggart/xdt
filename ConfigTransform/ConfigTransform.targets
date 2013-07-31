@@ -1,0 +1,16 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <UsingTask TaskName="ConfigTransform.ConfigTransform" AssemblyFile="ConfigTransform.dll" />
+
+  <PropertyGroup>
+    <BuildDependsOn>$(BuildDependsOn);ConfigTransform</BuildDependsOn>
+    <ConfigTransformExclude Condition="$(ConfigTransformExclude) == ''">packages.config</ConfigTransformExclude>
+    <ConfigTransformEnvVar Condition="$(ConfigTransformEnvVar) == ''">computername;username</ConfigTransformEnvVar>
+  </PropertyGroup>
+  
+  <Target Name="ConfigTransform">
+    <ConfigTransform.ConfigTransform ProjectFile="$(MSBuildProjectFullPath)" Exclude="$(ConfigTransformExclude)"
+        Configuration="$(Configuration)" EnvVar="$(ConfigTransformEnvVar)" />
+  </Target>
+
+</Project>

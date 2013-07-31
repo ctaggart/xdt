@@ -1,0 +1,21 @@
+﻿<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata minClientVersion="2.5">
+    <id>ConfigTransform</id>
+    <version>0.0.5</version>
+    <title>ConfigTransform MSBuild Target</title>
+    <authors>Cameron Taggart</authors>
+    <!--<summary></summary>-->
+    <description>Provides a MSBuild target that transforms app.config and web.config files.</description>
+    <projectUrl>https://github.com/ctaggart/xdt</projectUrl>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies />
+  </metadata>
+  <files>
+    <file src="bin\Release\*.dll" target="build" />
+    <file src="bin\Release\*.dll.config" target="build" />
+    <file src="bin\Release\*.pdb" target="build" />
+    <file src="bin\Release\*.xml" target="build" />
+    <file src="ConfigTransform.targets" target="build" />
+  </files>
+</package>
